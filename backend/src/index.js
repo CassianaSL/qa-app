@@ -63,10 +63,10 @@ app.post('/', checkJwt, (req, res) => {
   const {title, description} = req.body;
   const newQuestion = {
     id: questions.length + 1,
-      title,
-      description,
-      answers: [],
-      author: req.user.name
+    title,
+    description,
+    answers: [],
+    author: req.user.name
   };
   
   questions.push(newQuestion);
@@ -86,12 +86,12 @@ app.post('/answer/:id', checkJwt, (req, res) => {
   
   question[0].answers.push({
     answer,
-    author: req.user.name,
+    author: req.user.name
   });
   
   res.status(200).send();
 });
   
 app.listen(8081, () => {
-    console.log('listening on port 8081');
+  console.log('listening on port 8081');
 });

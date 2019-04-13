@@ -7,14 +7,13 @@ class Questions extends Component {
         super(props);
 
         this.state = {
-            questions: null,
+            questions: null
         };
     }
 
     async componentDidMount() {
         const questions = (await axios.get('http://localhost:8081/')).data;
 
-        console.log(questions)
         this.setState({questions});
     }
 
@@ -31,9 +30,9 @@ class Questions extends Component {
                             </div>
                         </div>
                     </Link>
-                    {/* <!-- ... loading questions message ... -->
-                        <!-- ... questions' cards ... --> */}
+
                     {this.state.questions === null && <p>Loading questions...</p>}
+                    
                     {
                         this.state.questions && this.state.questions.map(question => (
                             <div key={question.id} className="col-sm-12 col-md-4 col-lg-3">

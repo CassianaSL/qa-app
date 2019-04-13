@@ -10,30 +10,30 @@ class NewQuestion extends Component {
         this.state = {
             disabled: false,
             title: '',
-            description: '',
+            description: ''
         };
     }
 
     updateDescription(value) {
         this.setState({
-            description: value,
+            description: value
         });
     }
 
     updateTitle(value) {
         this.setState({
-            title: value,
+            title: value
         });
     }
 
     async submit() {
         this.setState({
-            disabled: true,
+            disabled: true
         });
 
         await axios.post('http://localhost:8081', {
             title: this.state.title,
-            description: this.state.description,
+            description: this.state.description
         }, {
             headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
         });
@@ -50,7 +50,8 @@ class NewQuestion extends Component {
                             <div className="card-header">New Question</div>
                             <div className="card-body text-left">
                                 <div className="form-group">
-                                    <label htmlFor="exampleInputEmail1">Title:</label>
+                                    <label htmlFor="exampleInputEmail1">
+                                        Title:</label>
                                     <input
                                         disabled={this.state.disabled}
                                         type="text"
